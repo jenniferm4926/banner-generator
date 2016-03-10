@@ -1,28 +1,66 @@
 <!DOCTYPE html>
-    <html>
-  <head>
+<html>
+
+<head>
     <meta charset="UTF-8">
     <title>template.html</title>
-<script src="//code.jquery.com/jquery-1.12.0.min.js"> </script>
-    <script>
-        
-        $(function(){
-            $(".disa").click(function(){
-                confirm('did you just click me?')
-            });
-            
-        });
-        
-        
-        
-        
-        
-        
-        
-        
+    <script src="//code.jquery.com/jquery-1.12.0.min.js">
     </script>
-  </head>
-  <body>
-  
-  </body>
+    <script>
+        $(function() {
+            $('button').click(function() {
+                
+                var colors = $('input[name="color"]:checked').val();
+                $('div').css('background-color', colors);
+                if ($('#other').is(':checked')) {
+                    var dif = ["orange", "yellow", "green", "pink"];
+                    var i = Math.floor(Math.random() * dif.length);
+
+                    $('div').css('background-color', dif[i]);
+
+                }
+                var ani = $('#favAn').val();
+                var age = $('#age').val();
+                var name = $("#name").val();
+                $('h1').html("Your name is " + name + ". Your favorite animal is " + ani + " you are " + age + " years old");
+
+
+            });
+        });
+    </script>
+    <style type="text/css">
+    #banner {
+    background-image: url("flowers.jpeg");
+    
+}
+h1 {
+    font-family: Courier;
+    font-variant: small-caps;
+}
+    </style>
+</head>
+
+<body>
+    <div id="response">
+        <p>Name</p>
+        <input id="name" />
+        <p>Favorite Animal</p>
+        <input id="favAn" />
+        <p>Favorite Color</p>
+        <input type="radio" name="color" value="red"> Red
+        <br>
+        <input type="radio" name="color" value='blue'> Blue
+        <br>
+        <input type="radio" name="color" value='purple'> Purple
+        <br>
+        <input type="radio" name="color" value='other' id="other"> Other
+        <p>Age</p>
+        <input type="number" name="age" min="1" max="100" id="age">
+        <button type="submit" value="Submit">Submit
+
+    </div>
+    <div id="banner">
+        <h1></h1></div>
+</body>
+
 </html>
