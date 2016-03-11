@@ -8,20 +8,24 @@
     </script>
     <script>
         $(function() {
+            //when the button is clicked run the rest of the code
             $('button').click(function() {
-                
+                //checks what radio button is clicked and assigns to the background 
                 var colors = $('input[name="color"]:checked').val();
                 $('div').css('background-color', colors);
-                if ($('#other').is(':checked')) {
+
+                if ($('#other').is(':checked')) { //checks if other option is selected 
+                    //multiplies a number by the dif array length, and then floors (rounds) the number which changes what the background color changes to.
                     var dif = ["orange", "yellow", "green", "pink"];
                     var i = Math.floor(Math.random() * dif.length);
-
-                    $('div').css('background-color', dif[i]);
+                    $('div').css('background-color', dif[i]); //sets background to the value of i
 
                 }
+                //retrieves the users input
                 var ani = $('#favAn').val();
                 var age = $('#age').val();
                 var name = $("#name").val();
+                //uses the users response and adds it to the rest of the sentence 
                 $('h1').html("Your name is " + name + ". Your favorite animal is " + ani + " you are " + age + " years old");
 
 
@@ -29,19 +33,23 @@
         });
     </script>
     <style type="text/css">
-    #banner {
-    background-image: url("flowers.jpeg");
-    
-}
-h1 {
-    font-family: Courier;
-    font-variant: small-caps;
-}
+        /*sets the div image to the flowers*/
+        
+        #banner {
+            background-image: url("flowers.jpeg");
+        }
+        /*the font is assigned with the characterstic of caps for everything*/
+        
+        h1 {
+            font-family: Courier;
+            font-variant: small-caps;
+        }
     </style>
 </head>
 
 <body>
     <div id="response">
+        <!--where the questions are and the boxes to response are made-->
         <p>Name</p>
         <input id="name" />
         <p>Favorite Animal</p>
